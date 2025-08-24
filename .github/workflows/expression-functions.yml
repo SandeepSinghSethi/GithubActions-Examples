@@ -12,7 +12,7 @@ jobs:
     runs-on : ubuntu-latest
     steps:
       - name: contains functions
-        if: contains("Hello","llo")
+        if: contains('hello','llo')
         run: echo "String Hello contains substring llo"
 
       - name: startsWith func
