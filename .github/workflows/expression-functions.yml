@@ -22,7 +22,7 @@ jobs:
         run : echo "endsWith Success"
 
       - name: format func
-        run: echo ${{ format('Hello : {0} - {1}', 'Bablu' , 'blast') }}
+        run: echo ${{ format('Hello {0} - {1}', 'Bablu' , 'blast') }}
 
       - name: join issue labels func
         if: github.event_name == "issues"
