@@ -1,4 +1,4 @@
-name: Expression Functions Demo
+name: "Expression Functions Demo"
 
 on:
   push:
@@ -45,6 +45,6 @@ jobs:
         run: echo "Success from success"
 
       - name: failure
-        if: ${{failure}}
+        if: ${{failure()}}
         run: echo "Failure from failure"
 
