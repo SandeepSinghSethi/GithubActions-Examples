@@ -16,11 +16,11 @@ jobs:
         run: echo "String Hello contains substring llo"
 
       - name: startsWith func
-        if: startsWith("hello","he")
+        if: startsWith('hello','he')
         run: echo " Starts with success"
 
       - name: endsWith func
-        if: endsWith("hello","lo")
+        if: endsWith('hello','lo')
         run : echo "endsWith Success"
 
       - name: format func
