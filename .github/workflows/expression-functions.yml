@@ -32,7 +32,7 @@ jobs:
         run: echo "Converting data to json ${{toJSON(github.job)}}"
 
       - name: parse json
-        run: echo "Parsing json : ${{fromJSON("{'hello':'world'}").hello}}"
+        run: "echo 'Parsing json : ${{fromJSON('{`hello`:`world`}').hello}}'"
 
       - name: hashFiles
         run: echo "Hash of files: ${{hashFiles('**/package-lock.json','**/Gemfile.lock')}}"
