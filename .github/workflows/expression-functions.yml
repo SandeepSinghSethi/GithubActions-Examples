@@ -29,7 +29,7 @@ jobs:
       - name: join issue labels func
         if: github.event_name == "issues"
         run: |
-          echo ${{ join(github.event.issues.labels.*.name, " , " )}}
+          echo ${{ join(github.event.issues.labels.*.name, ', ' )}}
 
       - name: to json
         run: echo "Converting data to json ${{toJSON(github.job)}}"
