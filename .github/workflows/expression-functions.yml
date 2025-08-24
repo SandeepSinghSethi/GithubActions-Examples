@@ -1,7 +1,9 @@
 name: Expression Functions Demo
 
 on:
-  push: ['main']
+  push:
+    branches:
+      - main
   issues:
     types: ['opened','labeled']
 
