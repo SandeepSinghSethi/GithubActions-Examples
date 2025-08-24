@@ -1,0 +1,47 @@
+name: Expression Functions Demo
+
+on:
+  push: ['main']
+  issues:
+    types: ['opened,labeled']
+
+jobs:
+  expression-functions:
+    runs-on : ubuntu-latest
+    steps:
+      - name: contains functions
+        if: contains("Hello","llo")
+        run: echo "String Hello contains substring llo"
+
+      - name: startsWith func
+        if: startsWith("hello","he")
+        run: echo " Starts with success"
+
+      - name: endsWith func
+        if: endsWith("hello","lo")
+        run : echo "endsWith Success"
+
+      - name: format func
+        run : echo ${{format("hello {0} : {1} - {2}", "shrek","donkey","pokemon")}}
+
+      - name: join issue labels func
+        if: github.event_name == "issues"
+        run: echo "Issue labels : ${{join(github.event.issue.labels.*.name, ', ')}}""
+
+      - name: to json
+        run: echo "Converting data to json ${{toJSON(github.job)}}"
+
+      - name: parse json
+        run: echo "Parsing json : ${{fromJSON("{'hello':'world'}").hello}}"
+
+      - name: hashFiles
+        run: echo "Hash of files: ${{hashFiles('**/package-lock.json','**/Gemfile.lock')}}"
+  
+      - name: success
+        if: ${{success()}}
+        run: echo "Success from success"
+
+      - name: failure
+        if: ${{failure}}
+        run: echo "Failure from failure"
+
