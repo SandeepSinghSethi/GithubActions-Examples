@@ -27,7 +27,7 @@ jobs:
         run: echo ${{ format('Hello {0} - {1}', 'Bablu' , 'blast') }}
 
       - name: join issue labels func
-        if: github.event_name == "issues"
+        if: github.event_name == 'issues'
         run: |
           echo ${{ join(github.event.issues.labels.*.name, ', ' )}}
 
