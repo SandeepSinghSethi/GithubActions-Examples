@@ -1,0 +1,32 @@
+name: Running on macOS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  macosJOB:
+    runs-on : macos-latest
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: running something on terminal
+        run: |
+          time echo "scale=1000000; 4*a(1)" | bc -l >> $GITHUB_STEP_SUMMARY
+
+      - name: Creating a simple swift file
+        run: |
+          echo 'print("Hello world")' > hello.swift
+
+      - name: Setting up swift env
+        run: |
+          brew install swiftlint
+
+      - name: running the swift file
+        run: |
+          swiftlint
+          swiftc hello.swift
+          ./hello
