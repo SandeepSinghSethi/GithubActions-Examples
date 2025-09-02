@@ -1,0 +1,21 @@
+name: depjobs
+
+on: ['push']
+
+jobs:
+  job1:
+    needs: [job3,job2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB1
+        run: echo "JOB1"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB2
+        run: echo "JOB2"
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB3
+        run: echo "JOB3"
