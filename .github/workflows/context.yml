@@ -1,0 +1,17 @@
+name: contexts
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  my-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "My step"
+        env:
+          MY_ACTION: ${{github.action}}
+        run: |
+          echo "$MY_ACTION"
+        
