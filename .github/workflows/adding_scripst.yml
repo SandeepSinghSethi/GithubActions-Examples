@@ -9,7 +9,7 @@ jobs:
 
     defaults:
       run:
-        working_directory: ./github-actions
+        working-directory: ./github-actions
     
     steps:
       - name: Checkout
