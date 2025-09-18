@@ -15,4 +15,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: runs script
-        run: ./myscript.sh
+        run: bash ./myscript.sh
